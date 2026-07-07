@@ -1,11 +1,15 @@
+import { withBasePath } from "@/lib/basePath";
+
 export const site = {
   name: "Maitreya Guduru",
   role: "Software Engineer",
   tagline: "Building scalable backend systems and AI-powered products.",
+  // GitHub Pages project-site URL. Swap this if a custom domain is added later.
+  url: "https://maitreyaguduru.github.io/Portfolio",
   email: "maitreya@proxgy.com",
   github: "https://github.com/maitreyaguduru",
   linkedin: "https://www.linkedin.com/in/maitreyaguduru",
-  resumeUrl: "/resume.pdf",
+  resumeUrl: withBasePath("/resume.pdf"),
   location: "India",
   availability: "Open to backend & AI engineering roles",
 } as const;
