@@ -191,7 +191,7 @@ export const projects: Project[] = [
       "A living map of low Earth orbit — search a satellite, watch its ground track, and see its next pass. My favorite intersection of backend engineering and something you can point at.",
     github: "https://github.com/maitreyaguduru",
     demo: "#",
-    accent: "258 84% 68%",
+    accent: "222 45% 32%",
     featured: true,
   },
   {

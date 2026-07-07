@@ -74,7 +74,7 @@ export function Skills() {
                       aria-valuemax={100}
                     >
                       <motion.div
-                        className="h-full rounded-full bg-gradient-to-r from-accent to-accent-purple"
+                        className="h-full rounded-full bg-gradient-to-r from-accent to-accent-secondary"
                         initial={{ width: 0 }}
                         whileInView={{ width: `${skill.level}%` }}
                         viewport={viewportOnce}

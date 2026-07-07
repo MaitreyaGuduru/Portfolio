@@ -41,32 +41,28 @@ export function Hero() {
     >
       <motion.div style={{ y, opacity }} className="section-shell relative z-10">
         <motion.div initial="hidden" animate="visible" variants={stagger}>
-          {/* Availability pill */}
-          <motion.div variants={blurReveal} className="mb-8">
-            <span className="glass inline-flex items-center gap-2.5 rounded-full px-4 py-2 text-xs text-muted-foreground">
-              <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60" />
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
-              </span>
-              {site.availability}
-            </span>
-          </motion.div>
-
-          <motion.p variants={blurReveal} className="kicker mb-6">
-            {site.name} — {site.role}
+          <motion.p variants={blurReveal} className="kicker mb-5">
+            {site.role} — Backend &amp; AI Engineering
           </motion.p>
 
           <motion.h1
             variants={blurReveal}
-            className="heading-xl max-w-4xl text-balance"
+            className="font-display text-5xl font-semibold leading-[1.02] tracking-tight text-balance sm:text-6xl md:text-7xl lg:text-[5.5rem]"
           >
-            Building <span className="text-gradient">scalable backend systems</span>{" "}
-            and AI-powered products.
+            {site.name}
           </motion.h1>
 
           <motion.p
             variants={blurReveal}
-            className="mt-7 max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg"
+            className="mt-5 max-w-2xl font-display text-xl font-medium tracking-tight text-muted-foreground md:text-3xl"
+          >
+            Building <span className="text-gradient">scalable backend systems</span>{" "}
+            and AI-powered products.
+          </motion.p>
+
+          <motion.p
+            variants={blurReveal}
+            className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground/80 md:text-lg"
           >
             I&apos;m a backend engineer working with Java, Spring Boot, and
             distributed systems on AWS — the kind of engineer who designs the

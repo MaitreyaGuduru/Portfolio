@@ -57,7 +57,10 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0a0a0b",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#f7efe2" },
+    { media: "(prefers-color-scheme: dark)", color: "#0e1420" },
+  ],
   width: "device-width",
   initialScale: 1,
 };
@@ -90,7 +93,7 @@ export default function RootLayout({
         {/* Apply stored theme before paint to avoid a flash */}
         <script
           dangerouslySetInnerHTML={{
-            __html: `try{if(localStorage.getItem("theme")==="light")document.documentElement.classList.add("light")}catch(e){}`,
+            __html: `try{if(localStorage.getItem("theme")==="dark")document.documentElement.classList.add("dark")}catch(e){}`,
           }}
         />
         <script
