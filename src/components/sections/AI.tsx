@@ -18,10 +18,10 @@ export function AI() {
             <Reveal key={item.title} index={i}>
               <div className="card-surface group relative h-full overflow-hidden p-7 transition-all duration-300 hover:-translate-y-1 hover:border-accent/40">
                 <div
-                  className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-accent-purple/10 blur-2xl transition-opacity duration-500 group-hover:opacity-100 md:opacity-0"
+                  className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-accent-secondary/10 blur-2xl transition-opacity duration-500 group-hover:opacity-100 md:opacity-0"
                   aria-hidden
                 />
-                <BrainCircuit size={20} className="text-accent-purple" aria-hidden />
+                <BrainCircuit size={20} className="text-accent-secondary" aria-hidden />
                 <h3 className="mt-4 text-sm font-semibold">{item.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
                   {item.body}
@@ -32,8 +32,8 @@ export function AI() {
         </div>
 
         <Reveal index={2} className="mt-10">
-          <div className="rounded-2xl border border-accent-purple/30 bg-gradient-to-br from-accent-purple/[0.07] to-transparent p-7 md:p-9">
-            <h3 className="font-mono text-xs uppercase tracking-[0.25em] text-accent-purple">
+          <div className="rounded-2xl border border-accent-secondary/30 bg-gradient-to-br from-accent-secondary/[0.07] to-transparent p-7 md:p-9">
+            <h3 className="font-mono text-xs uppercase tracking-[0.25em] text-accent-secondary">
               What I want to build next
             </h3>
             <ul className="mt-5 space-y-3">
@@ -44,7 +44,7 @@ export function AI() {
                 >
                   <ArrowRight
                     size={14}
-                    className="mt-1 shrink-0 text-accent-purple"
+                    className="mt-1 shrink-0 text-accent-secondary"
                     aria-hidden
                   />
                   {item}

@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Compass, Layers, Sparkles, Target } from "lucide-react";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
+import { PortraitArt } from "@/components/sections/PortraitArt";
 import { site } from "@/lib/data";
 
 const mindset = [
@@ -67,16 +68,7 @@ export function About() {
                 transition={{ duration: 0.4 }}
                 className="card-surface animated-border relative aspect-[4/5] overflow-hidden"
               >
-                {/* Photo placeholder — swap with a real portrait */}
-                <div className="absolute inset-0 bg-gradient-to-br from-accent/10 via-transparent to-accent-purple/10" />
-                <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
-                  <span className="font-display text-6xl font-semibold text-muted-foreground/40">
-                    MG
-                  </span>
-                  <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground/50">
-                    portrait goes here
-                  </span>
-                </div>
+                <PortraitArt />
                 <div className="glass absolute inset-x-4 bottom-4 rounded-xl p-4">
                   <p className="text-sm font-medium">{site.name}</p>
                   <p className="mt-0.5 text-xs text-muted-foreground">

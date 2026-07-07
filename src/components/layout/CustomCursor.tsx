@@ -10,8 +10,13 @@ import {
 
 /**
  * A minimal dot + trailing ring cursor. Only mounts on fine pointers;
- * touch devices never pay for it. The ring expands over interactive
- * elements instead of a gimmicky blob.
+ * touch devices never pay for it.
+ *
+ * Perf note: the ring's hover-grow used to animate `width`/`height`,
+ * which forces a layout reflow on every hover transition across the
+ * whole page. It now animates `scale` on an inner element instead —
+ * transform-only, compositor-cheap — while the outer element (which
+ * tracks the spring-smoothed position) never changes size.
  */
 export function CustomCursor() {
   const [enabled, setEnabled] = useState(false);
@@ -20,8 +25,8 @@ export function CustomCursor() {
 
   const x = useMotionValue(-100);
   const y = useMotionValue(-100);
-  const ringX = useSpring(x, { stiffness: 350, damping: 30, mass: 0.6 });
-  const ringY = useSpring(y, { stiffness: 350, damping: 30, mass: 0.6 });
+  const ringX = useSpring(x, { stiffness: 300, damping: 28, mass: 0.45 });
+  const ringY = useSpring(y, { stiffness: 300, damping: 28, mass: 0.45 });
 
   useEffect(() => {
     const fine = window.matchMedia("(pointer: fine)").matches;
@@ -63,28 +68,31 @@ export function CustomCursor() {
             aria-hidden
             className="pointer-events-none fixed left-0 top-0 z-[100] h-1.5 w-1.5 rounded-full bg-foreground"
             style={{ x, y }}
-            transformTemplate={(_, t) => `translate(-50%, -50%) ${t}`}
+            transformTemplate={(_, t) => `translate3d(-50%, -50%, 0) ${t}`}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
           />
           <motion.div
             aria-hidden
-            className="pointer-events-none fixed left-0 top-0 z-[99] rounded-full border border-foreground/30"
+            className="pointer-events-none fixed left-0 top-0 z-[99] h-7 w-7"
             style={{ x: ringX, y: ringY }}
-            transformTemplate={(_, t) => `translate(-50%, -50%) ${t}`}
+            transformTemplate={(_, t) => `translate3d(-50%, -50%, 0) ${t}`}
             initial={{ opacity: 0 }}
-            animate={{
-              opacity: 1,
-              width: hoveringLink ? 44 : 28,
-              height: hoveringLink ? 44 : 28,
-              backgroundColor: hoveringLink
-                ? "hsl(var(--accent) / 0.08)"
-                : "transparent",
-            }}
+            animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
-          />
+          >
+            <motion.div
+              className="h-full w-full rounded-full border border-foreground/30"
+              animate={{
+                scale: hoveringLink ? 1.55 : 1,
+                backgroundColor: hoveringLink
+                  ? "hsl(var(--accent) / 0.1)"
+                  : "hsl(var(--accent) / 0)",
+              }}
+              transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
+            />
+          </motion.div>
         </>
       )}
     </AnimatePresence>

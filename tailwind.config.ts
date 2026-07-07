@@ -14,7 +14,7 @@ const config: Config = {
         card: "hsl(var(--card) / <alpha-value>)",
         accent: {
           DEFAULT: "hsl(var(--accent) / <alpha-value>)",
-          purple: "hsl(var(--accent-purple) / <alpha-value>)",
+          secondary: "hsl(var(--accent-secondary) / <alpha-value>)",
         },
       },
       fontFamily: {

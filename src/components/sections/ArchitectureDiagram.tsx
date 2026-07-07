@@ -103,7 +103,7 @@ export function ArchitectureDiagram() {
               fill="hsl(var(--card))"
               stroke={
                 box.id === "obs"
-                  ? "hsl(var(--accent-purple) / 0.5)"
+                  ? "hsl(var(--accent-secondary) / 0.5)"
                   : "hsl(var(--border))"
               }
             />
