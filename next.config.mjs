@@ -5,8 +5,12 @@ const nextConfig = {
   compiler: {
     removeConsole: process.env.NODE_ENV === "production",
   },
+  // images: {
+  //   formats: ["image/avif", "image/webp"],
+  // },
+  output: 'export',          // Generates static HTML/CSS/JS assets
   images: {
-    formats: ["image/avif", "image/webp"],
+    unoptimized: true,       // Disables Vercel-dependent image optimization server
   },
 };
 
