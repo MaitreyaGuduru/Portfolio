@@ -5,6 +5,8 @@ import { site } from "@/lib/data";
 // dynamic signal — force static so it's fine under `output: "export"`.
 export const dynamic = "force-static";
 
+export const dynamic = "force-static";
+
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
