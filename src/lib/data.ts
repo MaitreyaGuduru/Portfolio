@@ -1,13 +1,29 @@
+import { withBasePath } from "@/lib/basePath";
+
+// All NEXT_PUBLIC_* vars are inlined into the client bundle at build time
+// (static export has no server), so none of these are secret — they're just
+// configurable. Defaults below match production and keep `next dev`/`next build`
+// working even without a .env file present.
 export const site = {
-  name: "Maitreya Guduru",
-  role: "Software Engineer",
-  tagline: "Building scalable backend systems and AI-powered products.",
-  email: "maitreya@proxgy.com",
-  github: "https://github.com/maitreyaguduru",
-  linkedin: "https://www.linkedin.com/in/maitreyaguduru",
-  resumeUrl: "/resume.pdf",
-  location: "India",
-  availability: "Open to backend & AI engineering roles",
+  name: process.env.NEXT_PUBLIC_SITE_NAME ?? "Maitreya Guduru",
+  role: process.env.NEXT_PUBLIC_SITE_ROLE ?? "Software Engineer",
+  tagline:
+    process.env.NEXT_PUBLIC_SITE_TAGLINE ??
+    "Building scalable backend systems and AI-powered products.",
+  // GitHub Pages project-site URL. Swap this if a custom domain is added later.
+  url:
+    process.env.NEXT_PUBLIC_SITE_URL ??
+    "https://maitreyaguduru.github.io/Portfolio",
+  email: process.env.NEXT_PUBLIC_SITE_EMAIL ?? "gudurumaitreya@gmail.com",
+  github: process.env.NEXT_PUBLIC_SITE_GITHUB ?? "https://github.com/maitreyaguduru",
+  linkedin:
+    process.env.NEXT_PUBLIC_SITE_LINKEDIN ??
+    "https://www.linkedin.com/in/maitreya-guduru-25468522b/",
+  resumeUrl: withBasePath("/resume.pdf"),
+  location: process.env.NEXT_PUBLIC_SITE_LOCATION ?? "India",
+  availability:
+    process.env.NEXT_PUBLIC_SITE_AVAILABILITY ??
+    "Open to connections",
 } as const;
 
 export const navLinks = [

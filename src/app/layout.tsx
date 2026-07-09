@@ -23,7 +23,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://maitreyaguduru.dev"),
+  metadataBase: new URL(site.url),
   title: {
     default: `${site.name} — ${site.role}`,
     template: `%s — ${site.name}`,
@@ -71,7 +71,7 @@ const personJsonLd = {
   name: site.name,
   jobTitle: site.role,
   email: site.email,
-  url: "https://maitreyaguduru.dev",
+  url: site.url,
   sameAs: [site.github, site.linkedin],
   knowsAbout: [
     "Backend Engineering",
