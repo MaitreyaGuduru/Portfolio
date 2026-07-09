@@ -10,14 +10,10 @@ const nextConfig = {
   compiler: {
     removeConsole: process.env.NODE_ENV === "production",
   },
-  // images: {
-  //   formats: ["image/avif", "image/webp"],
-  // },
-  output: 'export',          // Generates static HTML/CSS/JS assets
   images: {
     // Static export has no server to run Next's image optimizer.
     unoptimized: true,
-    formats: ["image/avif", "image/webp"],      // Disables Vercel-dependent image optimization server
+    formats: ["image/avif", "image/webp"],
   },
 };
 
