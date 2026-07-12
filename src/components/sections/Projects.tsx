@@ -7,7 +7,7 @@ import { projects, type Project } from "@/lib/data";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
 import { Tag } from "@/components/ui/Tag";
-import { ProjectArt } from "@/components/sections/ProjectArt";
+import { ProjectMedia } from "@/components/sections/ProjectArt";
 import { ProjectModal } from "@/components/sections/ProjectModal";
 import { EASE } from "@/lib/motion";
 import { cn } from "@/lib/utils";
@@ -38,7 +38,7 @@ export function Projects() {
         <SectionHeading
           kicker="Projects"
           title="Things I've built."
-          lede="Each of these started as a real problem — mine or someone else's. Click any card for the architecture, the hard parts, and what came out the other side."
+          lede="Each of these started with a real problem — some from work, some personal. Open any card for the architecture, the hard parts, and the outcome."
         />
 
         {/* Filter + search */}
@@ -99,11 +99,7 @@ export function Projects() {
                   aria-label={`Open ${project.title} details`}
                 >
                   <div className="h-full w-full transition-transform duration-700 ease-out group-hover:scale-[1.03]">
-                    <ProjectArt
-                      slug={project.slug}
-                      accent={project.accent}
-                      title={project.title}
-                    />
+                    <ProjectMedia project={project} />
                   </div>
                   <span className="glass absolute right-4 top-4 flex h-9 w-9 translate-y-1 items-center justify-center rounded-full opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
                     <ArrowUpRight size={15} aria-hidden />

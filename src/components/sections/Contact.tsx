@@ -44,7 +44,7 @@ export function Contact() {
         <SectionHeading
           kicker="Contact"
           title="Let's build something."
-          lede="I'm open to backend and AI engineering roles, and always happy to talk systems. The fastest way to reach me is email — I actually reply."
+          lede="I'm open to backend and AI engineering roles, and always glad to talk systems. Email is the fastest way to reach me, and I reply."
         />
 
         <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">

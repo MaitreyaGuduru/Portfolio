@@ -7,7 +7,19 @@
       "Bash(npm install *)",
       "Bash(node -e *)",
       "Bash(npm run *)",
-      "Bash(node scripts/shoot.mjs /private/tmp/claude-501/-Users-maitreyaguduru-Documents-Maitreya-Portfolio-Website/7bcd7585-5e11-42fa-ba96-29773b91c8aa/scratchpad/shots7)"
+      "Bash(node scripts/shoot.mjs /private/tmp/claude-501/-Users-maitreyaguduru-Documents-Maitreya-Portfolio-Website/7bcd7585-5e11-42fa-ba96-29773b91c8aa/scratchpad/shots7)",
+      "Bash(node scripts/shoot.mjs /private/tmp/claude-501/-Users-maitreyaguduru-Documents-Maitreya-Portfolio-Website/7bcd7585-5e11-42fa-ba96-29773b91c8aa/scratchpad/shots9)",
+      "Bash(lsof -tiTCP:4173)",
+      "Bash(xargs -r kill -9)",
+      "Bash(NEXT_PUBLIC_BASE_PATH=\"\" npm run build)",
+      "Bash(nohup python3 -m http.server 4173 --directory out)",
+      "Bash(disown)",
+      "Bash(curl -s http://localhost:4173/)",
+      "Bash(break)",
+      "Bash(node scripts/shoot.mjs /private/tmp/claude-501/-Users-maitreyaguduru-Documents-Maitreya-Portfolio-Website/7bcd7585-5e11-42fa-ba96-29773b91c8aa/scratchpad/shots10)",
+      "Bash(node scripts/shoot.mjs /private/tmp/claude-501/-Users-maitreyaguduru-Documents-Maitreya-Portfolio-Website/7bcd7585-5e11-42fa-ba96-29773b91c8aa/scratchpad/final)",
+      "Bash(file public/*.png public/*.jpg public/*.jpeg)",
+      "Bash(sips -s format jpeg -s formatOptions 82 public/portrait.png --out public/portrait.jpg)"
     ]
   }
 }
