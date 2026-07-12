@@ -18,8 +18,8 @@ export function Experience() {
       <div className="section-shell">
         <SectionHeading
           kicker="Experience"
-          title="Where I've shipped."
-          lede="Production systems, real users, on-call rotations — the parts of engineering you only learn by owning services that people depend on."
+          title="Where I work."
+          lede="Backend engineering at Proxgy since 2024, across their IoT and logistics products. Here's what that looks like in practice."
         />
 
         <div className="relative ml-2 border-l border-border/70 pl-8 md:ml-4 md:pl-12">

@@ -9,8 +9,8 @@ export function Architecture() {
       <div className="section-shell">
         <SectionHeading
           kicker="How I think"
-          title="Architecture is a set of promises."
-          lede="Every system I design starts with the same questions: what breaks first, who gets paged, and how do we know? Here's the shape most of my systems take — and the principles behind it."
+          title="How I think about building things."
+          lede="Before I write much, I try to answer a few unglamorous questions: what breaks first, who finds out, and how. Here's the rough shape a lot of my services take, and the ideas I keep coming back to."
         />
 
         <Reveal variant="blur">

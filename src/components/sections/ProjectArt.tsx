@@ -1,3 +1,8 @@
+"use client";
+
+import { useState } from "react";
+import type { Project } from "@/lib/data";
+
 /**
  * Generative "app window" artwork for project cards. Deterministic per
  * slug so cards are stable across renders, and drawn as SVG so it stays
@@ -131,5 +136,41 @@ export function ProjectArt({
       />
       <circle cx="333" cy="239" r="3" fill={`hsl(${accent})`} />
     </svg>
+  );
+}
+
+/**
+ * Renders a project's real screenshot (`project.image`) when it's set and
+ * loads successfully; otherwise falls back to the generated art above.
+ * `variantKey` keeps the card and modal art visually distinct.
+ */
+export function ProjectMedia({
+  project,
+  variantKey = "",
+}: {
+  project: Project;
+  variantKey?: string;
+}) {
+  const [errored, setErrored] = useState(false);
+
+  if (project.image && !errored) {
+    return (
+      <img
+        src={project.image}
+        alt={`${project.title} screenshot`}
+        onError={() => setErrored(true)}
+        loading="lazy"
+        decoding="async"
+        className="h-full w-full object-cover object-top"
+      />
+    );
+  }
+
+  return (
+    <ProjectArt
+      slug={`${project.slug}${variantKey}`}
+      accent={project.accent}
+      title={project.title}
+    />
   );
 }
