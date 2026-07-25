@@ -46,42 +46,42 @@ export type SkillGroup = {
 export const skillGroups: SkillGroup[] = [
   {
     category: "Backend",
-    blurb: "The core of what I do — services that stay up and stay fast.",
+    blurb: "My primary toolkit for building services.",
     skills: [
-      { name: "Java", level: 92, note: "Primary language in production" },
-      { name: "Spring Boot", level: 90, note: "REST APIs, security, scheduling" },
-      { name: "Node.js", level: 78, note: "Services & tooling" },
-      { name: "NestJS", level: 74, note: "Structured TypeScript backends" },
+      { name: "NestJS", level: 88, note: "Daily driver in production" },
+      { name: "TypeScript", level: 86, note: "Primary language" },
+      { name: "Node.js", level: 84, note: "Services and tooling" },
+      { name: "Java / Spring Boot", level: 78, note: "Where I started; used in side projects" },
     ],
   },
   {
     category: "Data & Cloud",
-    blurb: "Where state lives and how it scales.",
+    blurb: "Where the data lives and how it stays available.",
     skills: [
-      { name: "PostgreSQL", level: 86, note: "Query tuning, indexing, migrations" },
-      { name: "SQL", level: 88, note: "Analytical & transactional workloads" },
-      { name: "AWS", level: 80, note: "EC2, S3, RDS, IAM, deployments" },
-      { name: "MQTT", level: 76, note: "IoT device messaging at Proxgy" },
+      { name: "PostgreSQL", level: 85, note: "Queries, indexes, migrations" },
+      { name: "SQL", level: 85, note: "Transactional and analytical work" },
+      { name: "AWS", level: 78, note: "EC2, S3, RDS, IAM" },
+      { name: "MQTT", level: 76, note: "IoT device messaging" },
     ],
   },
   {
-    category: "DevOps & Observability",
-    blurb: "Shipping safely, then watching it like a hawk.",
+    category: "DevOps & Monitoring",
+    blurb: "Shipping safely and knowing when something breaks.",
     skills: [
-      { name: "Docker", level: 82, note: "Containerized every service I own" },
-      { name: "Jenkins", level: 75, note: "CI/CD pipelines" },
-      { name: "GitHub Actions", level: 80, note: "Build, test, deploy workflows" },
-      { name: "Prometheus / Grafana", level: 78, note: "Metrics, dashboards, Alertmanager" },
+      { name: "Docker", level: 82, note: "Every service I own is containerized" },
+      { name: "GitHub Actions", level: 80, note: "Build, test, deploy" },
+      { name: "Jenkins", level: 72, note: "Maintained existing pipelines" },
+      { name: "Prometheus / Grafana", level: 78, note: "Metrics, dashboards, alerts" },
     ],
   },
   {
-    category: "Architecture & AI",
-    blurb: "Designing systems, and teaching them to think.",
+    category: "Working with AI",
+    blurb: "The area I'm investing in most right now.",
     skills: [
-      { name: "Microservices", level: 80, note: "Service boundaries, contracts" },
-      { name: "Distributed Systems", level: 76, note: "Queues, retries, idempotency" },
-      { name: "REST API Design", level: 88, note: "Versioning, pagination, auth" },
-      { name: "LLM / OpenAI APIs", level: 74, note: "RAG, embeddings, agents" },
+      { name: "OpenAI APIs", level: 78, note: "Shipped side projects on them" },
+      { name: "RAG & Embeddings", level: 72, note: "Retrieval over real documents" },
+      { name: "REST API Design", level: 85, note: "Versioning, pagination, auth" },
+      { name: "Microservices", level: 76, note: "Service boundaries and contracts" },
     ],
   },
 ];
@@ -101,28 +101,28 @@ export const experiences: Experience[] = [
   {
     company: "Proxgy",
     role: "Software Engineer",
-    period: "2023 — Present",
+    period: "Jun 2024 — Present",
     summary:
-      "Backend engineer across Proxgy's IoT and logistics products — owning services from design through production monitoring.",
+      "I work on the backend of Proxgy's IoT and logistics products in NestJS and TypeScript — from designing the service to monitoring it in production.",
     achievements: [
-      "Designed and shipped backend services for a logistics platform handling live shipment tracking, orchestrating data from IoT devices over MQTT into PostgreSQL-backed APIs.",
-      "Built payment integrations end to end — provider webhooks, reconciliation, and failure handling — treating idempotency and auditability as first-class requirements.",
-      "Automated merchant onboarding with an internal platform that replaced manual spreadsheet-driven workflows, cutting operational back-and-forth for the ops team.",
-      "Stood up the monitoring stack (Prometheus, Grafana, Alertmanager) for production services, turning silent failures into paged, diagnosable incidents.",
-      "Implemented access-control and role-based permission systems used across internal tools.",
-      "Optimized hot PostgreSQL queries and indexes on high-traffic tables, measurably reducing API latency on core endpoints.",
-      "Owned CI/CD pipelines (Jenkins, GitHub Actions) and AWS deployments, making releases boring — in the good way.",
+      "Build and maintain backend services for the logistics platform in NestJS and TypeScript, taking features from API design through to production.",
+      "Integrate IoT devices over MQTT and land their data cleanly in PostgreSQL, behind APIs the rest of the team builds on.",
+      "Handled payment integrations end to end — webhooks, reconciliation, and the failure cases that appear once real money moves.",
+      "Replaced a spreadsheet-driven merchant onboarding process with an internal tool that gave it clear stages and an audit trail.",
+      "Set up monitoring with Prometheus, Grafana, and Alertmanager so problems surface before customers report them.",
+      "Tuned slow PostgreSQL queries and added missing indexes, bringing response times down on the busiest endpoints.",
+      "Keep releases uneventful with CI/CD on GitHub Actions and AWS.",
     ],
     tech: [
-      "Java",
-      "Spring Boot",
+      "NestJS",
+      "TypeScript",
       "PostgreSQL",
       "AWS",
       "MQTT",
       "Docker",
       "Prometheus",
       "Grafana",
-      "Jenkins",
+      "GitHub Actions",
     ],
   },
 ];
@@ -141,49 +141,35 @@ export type Project = {
   results: string;
   github?: string;
   demo?: string;
-  accent: string; // hsl accent for the card art
+  accent: string; // hsl accent for the generative card art (fallback)
+  /**
+   * Optional real screenshot. To use one: drop an image at
+   * `public/projects/<slug>.png` and set `image: withBasePath("/projects/<slug>.png")`.
+   * When set it replaces the generated art on both the card and the modal.
+   * If the file is missing, it quietly falls back to the generated art.
+   */
+  image?: string;
   featured?: boolean;
 };
 
 export const projects: Project[] = [
   {
-    slug: "ai-resume-optimizer",
-    title: "AI Resume Optimizer",
-    tagline: "Tailors your resume to every job description using LLMs.",
-    category: "AI",
-    tech: ["Next.js", "Node.js", "OpenAI API", "PostgreSQL", "Tailwind"],
-    problem:
-      "Applying to many roles means rewriting the same resume over and over — and most people guess at what a job description is actually asking for. The optimizer reads both sides and closes the gap.",
-    architecture:
-      "A Next.js frontend talks to a Node.js API that orchestrates a multi-step LLM pipeline: the job description is parsed into structured requirements, the resume is embedded section-by-section, and a matching pass scores alignment before a rewrite pass proposes targeted edits. Results are cached per (resume, JD) pair to keep token costs predictable.",
-    challenges: [
-      "Keeping LLM output structured and diff-able — solved with strict JSON schemas and a validation/retry loop rather than trusting free-form output.",
-      "Preventing the model from inventing experience: every suggested edit must trace back to content that already exists in the source resume.",
-      "Token cost control via section-level embeddings and caching instead of re-processing whole documents.",
-    ],
-    results:
-      "Produces recruiter-readable, ATS-friendly tailored resumes in under a minute, with every change explainable back to the job description.",
-    github: "https://github.com/maitreyaguduru",
-    accent: "213 100% 60%",
-    featured: true,
-  },
-  {
     slug: "personal-finance-ai",
     title: "Personal Finance AI",
-    tagline: "Statement parsing and spending insights, powered by LLMs.",
+    tagline: "Reads your bank statements and tells you where the money went.",
     category: "AI",
-    tech: ["NestJS", "TypeScript", "OpenAI API", "PostgreSQL", "React"],
+    tech: ["Java", "Spring Boot", "PostgreSQL", "OpenAI API"],
     problem:
-      "Bank statements are where financial data goes to die — PDFs and CSVs in a dozen formats that no one reads. This turns them into categorized, queryable spending data with plain-language insights.",
+      "Bank statements pile up as PDFs and CSVs that never get read. I wanted something that could take that pile and turn it into a clear, plain-language picture of my spending.",
     architecture:
-      "A NestJS backend ingests statements through a parsing layer that normalizes heterogeneous bank formats into a common transaction schema. An LLM-assisted categorizer labels transactions with confidence scores; low-confidence rows fall back to rules and user feedback, which is stored and reused. Insights are generated over aggregated data, never raw rows, keeping prompts small and private.",
+      "A Spring Boot backend takes in statements and normalizes the different bank formats into one common transaction shape. From there it categorizes each transaction — leaning on an LLM when the rules aren't sure — and stores everything in PostgreSQL. The insights are generated from the totals, not the raw rows, so the prompts stay small and my account details stay out of it.",
     challenges: [
-      "Parsing wildly inconsistent statement formats — solved with a per-bank adapter pattern behind a single normalized interface.",
-      "Trustworthy auto-categorization: confidence thresholds decide when the model labels silently vs. asks the user.",
-      "Privacy by construction — the LLM sees aggregates and categories, not account numbers or balances.",
+      "Every bank exports statements differently, so I wrote a small adapter per format behind one common interface instead of one giant parser.",
+      "Deciding when to trust the model's category and when to fall back to rules — confidence thresholds ended up doing most of that work.",
+      "Keeping it private: the model only ever sees categories and totals, never account numbers or balances.",
     ],
     results:
-      "Turns a shoebox of statements into a searchable ledger with monthly insight summaries — the kind of tool I built because I wanted to use it.",
+      "It turns a folder of statements into a searchable ledger with a monthly summary of where the money goes. I built it because I wanted to use it — and I still do.",
     github: "https://github.com/maitreyaguduru",
     accent: "160 84% 45%",
     featured: true,
@@ -191,20 +177,20 @@ export const projects: Project[] = [
   {
     slug: "orbitlab",
     title: "OrbitLab",
-    tagline: "Real-time satellite visualization on a 3D globe.",
+    tagline: "Live satellites, drawn on a 3D globe you can spin.",
     category: "Visualization",
     tech: ["FastAPI", "React", "Cesium", "PostgreSQL"],
     problem:
-      "Orbital data is public but unreadable — TLE sets are just rows of numbers. OrbitLab renders live satellite positions and orbits on an interactive 3D Earth so you can actually see what's overhead.",
+      "Satellite data is public, but it arrives as rows of numbers no one can read. I wanted to see what's overhead right now, on a globe I could spin and search.",
     architecture:
-      "A FastAPI backend ingests TLE data, propagates orbits server-side, and serves position streams to a React + Cesium frontend. PostgreSQL stores satellite metadata and orbital elements; the API precomputes trajectory windows so the client interpolates smoothly instead of hammering the server.",
+      "A FastAPI backend reads the raw orbital data, works out where each satellite is over time, and streams those positions to a React frontend that draws them with Cesium. PostgreSQL holds the satellite info, and the backend works out short windows of the path ahead so the browser can move things smoothly instead of asking the server constantly.",
     challenges: [
-      "Rendering thousands of moving objects at 60fps — solved by batching Cesium entities and interpolating client-side between server keyframes.",
-      "Orbit propagation accuracy vs. compute cost: trajectory windows are recomputed on a schedule, not per-request.",
-      "Designing an API that serves both 'show me everything' and 'track this one satellite' access patterns cleanly.",
+      "Getting thousands of moving dots to render at a smooth 60fps meant batching them and letting the browser fill in the motion between updates.",
+      "There's a trade-off between how accurate the orbits are and how much math you do — I recompute paths on a schedule rather than on every request.",
+      "Designing one API that handles both 'show me everything up there' and 'just follow this one satellite'.",
     ],
     results:
-      "A living map of low Earth orbit — search a satellite, watch its ground track, and see its next pass. My favorite intersection of backend engineering and something you can point at.",
+      "You can search for a satellite, watch its track across the Earth, and see when it will pass overhead next. My favorite kind of project — real backend work behind something visible.",
     github: "https://github.com/maitreyaguduru",
     demo: "#",
     accent: "222 45% 32%",
@@ -213,37 +199,37 @@ export const projects: Project[] = [
   {
     slug: "merchant-tracker",
     title: "Merchant Tracker",
-    tagline: "Internal platform that made merchant onboarding self-serve.",
+    tagline: "Turned merchant onboarding from a spreadsheet into a real tool.",
     category: "Platform",
-    tech: ["Java", "Spring Boot", "PostgreSQL", "AWS"],
+    tech: ["NestJS", "TypeScript", "PostgreSQL", "AWS"],
     problem:
-      "Merchant onboarding at Proxgy lived in spreadsheets and Slack threads — slow, error-prone, and invisible to leadership. This platform gave the process states, owners, and an audit trail.",
+      "Onboarding merchants at work lived in spreadsheets and Slack threads. It was slow, easy to lose track of, and nobody could tell you where a given merchant was stuck.",
     architecture:
-      "A Spring Boot service modeling onboarding as an explicit state machine — each merchant moves through verification, documentation, and activation stages with role-based permissions on every transition. PostgreSQL holds the canonical state; every change is event-logged for auditability.",
+      "A NestJS service that treats onboarding as a set of clear stages — verification, documents, activation — with permissions on who can move a merchant between them. PostgreSQL holds the state, and every change is logged so there's always a trail of what happened and when.",
     challenges: [
-      "Translating a messy human process into a state machine without blocking legitimate edge cases — escape hatches are logged, not forbidden.",
-      "Role-based access control that matched real team boundaries instead of an idealized org chart.",
+      "Turning a messy human process into defined stages without blocking the odd exception — the exceptions get logged, not forbidden.",
+      "Building permissions that matched how the team really worked, not an idealized org chart.",
     ],
     results:
-      "Replaced manual tracking with a single source of truth. Ops stopped asking 'where is this merchant stuck?' because the platform answers it.",
+      "It replaced the spreadsheet with one source of truth. People stopped asking 'where's this merchant stuck?' because they could just look.",
     accent: "35 92% 55%",
   },
   {
     slug: "indoor-navigation",
     title: "Indoor Navigation",
-    tagline: "AR wayfinding for spaces GPS can't see.",
+    tagline: "AR directions for the places GPS gives up on.",
     category: "Visualization",
     tech: ["AR", "Node.js", "Graph Algorithms"],
     problem:
-      "GPS dies indoors. This project overlays AR direction cues on a phone camera feed to guide people through large indoor spaces — malls, offices, hospitals.",
+      "GPS stops working the moment you walk indoors. I wanted to see if you could guide someone through a big building — a mall or an office — with directions drawn right on their phone's camera.",
     architecture:
-      "Indoor maps are modeled as weighted graphs of walkable nodes; a pathfinding service computes routes that an AR layer renders as on-screen guidance anchored to the real world.",
+      "The building's map is stored as a graph of walkable points, and a small pathfinding service works out the route. An AR layer then draws that route onto the live camera view so it lines up with the real hallway in front of you.",
     challenges: [
-      "Reliable indoor positioning without GPS — anchoring AR sessions to known reference points and recalibrating as drift accumulates.",
-      "Making graph-based routes feel human: fewer turns beats mathematically shortest.",
+      "Figuring out where you are without GPS — anchoring to known points and correcting as the tracking drifts.",
+      "Making the routes feel natural to walk: fewer turns usually beats the mathematically shortest path.",
     ],
     results:
-      "A working proof that AR wayfinding can feel natural — and a crash course in the gap between a correct algorithm and a usable product.",
+      "A working proof that AR directions can feel natural indoors — and a useful lesson in the gap between an algorithm that is correct and one that is pleasant to use.",
     accent: "190 90% 50%",
   },
 ];
@@ -258,27 +244,27 @@ export type Principle = {
 export const principles: Principle[] = [
   {
     title: "API Design",
-    body: "APIs are promises. I version them, paginate them, document failure modes, and never make a client guess. A good API survives the team that wrote it.",
+    body: "An API is a promise to whoever's calling it. I try to keep them predictable — clear versioning, sensible pagination, and honest error responses — so nobody has to guess what happens next.",
   },
   {
-    title: "Scalability",
-    body: "Scale the bottleneck, not the ego. Measure first, cache second, shard last. Most systems need boring horizontal scaling and honest capacity math — not exotic architecture.",
+    title: "Scaling",
+    body: "I'd rather measure than assume. Most things that feel slow have one real bottleneck, and fixing that beats reaching for something clever you'll have to maintain later.",
   },
   {
     title: "Caching",
-    body: "Every cache is a bet about staleness. I make the bet explicit: what's cached, for how long, and what happens when it's wrong. Invalidation strategy comes before the cache does.",
+    body: "A cache is really a bet about how stale you can afford to be. I try to make that bet on purpose — what's cached, for how long, and what happens when it's wrong — instead of bolting one on and hoping.",
   },
   {
     title: "Databases",
-    body: "The database outlives the code. Schemas get designed deliberately, indexes get justified by query plans, and migrations are rehearsed — never improvised at 2am.",
+    body: "The database usually outlives the code around it, so it deserves care. I want indexes I can justify with a query plan and migrations that have been rehearsed before they run.",
   },
   {
     title: "Cloud",
-    body: "Infrastructure should be reproducible, observable, and cheap to throw away. If bringing up a new environment takes more than one command, that's a bug.",
+    body: "I like infrastructure I can tear down and bring back without ceremony. If spinning up a fresh environment takes more than a command or two, that's something to fix.",
   },
   {
-    title: "Observability",
-    body: "If you can't see it, you don't own it. Every service I ship comes with metrics, structured logs, and alerts that page on symptoms users feel — not on noise.",
+    title: "Monitoring",
+    body: "If I can't see what a service is doing, I don't truly own it. I ship metrics and alerts that fire on symptoms users would notice — not noise that trains people to ignore alerts.",
   },
 ];
 
@@ -286,27 +272,21 @@ export const principles: Principle[] = [
 
 export const aiFocus = [
   {
-    title: "LLM Integrations",
-    body: "Building products on OpenAI APIs with structured outputs, validation loops, and cost-aware pipelines — treating the model as a component, not magic.",
+    title: "Building on LLMs",
+    body: "I treat a model like any other part of the system — something that needs structure around its output, checks when it's wrong, and an eye on what it costs. Not magic, just another component.",
   },
   {
     title: "RAG & Embeddings",
-    body: "Retrieval-augmented generation over real documents: chunking strategies, embedding pipelines, and vector search that returns grounded answers instead of confident guesses.",
+    body: "Pointing a model at real documents so its answers are grounded in something instead of guessed. I've been learning how much the chunking and retrieval matter to whether the answer's any good.",
   },
   {
-    title: "Agents & Tool Use",
-    body: "Agentic systems that plan, call tools, and recover from failure — with the same discipline as any distributed system: retries, timeouts, observability.",
+    title: "Agents & Tools",
+    body: "Letting a model plan and call tools, then handling the moments it goes sideways — which feels a lot like the retries and timeouts I'm already used to on the backend.",
   },
   {
-    title: "Prompt Engineering",
-    body: "Prompts as versioned, tested artifacts. Schema-constrained outputs, eval sets before deploys, and regression tests when models change underneath you.",
+    title: "Prompting",
+    body: "Treating prompts less like a lucky phrase and more like code — something worth testing, keeping constrained, and checking again when the model underneath changes.",
   },
-] as const;
-
-export const aiRoadmap = [
-  "An AI code-review companion trained on a team's own conventions",
-  "Self-healing backend agents that triage production alerts before a human wakes up",
-  "Developer tools where the LLM handles the boilerplate and the engineer keeps the judgment",
 ] as const;
 
 /* ------------------------------- Testimonials ------------------------------ */
@@ -314,29 +294,20 @@ export const aiRoadmap = [
 export const testimonials = [
   {
     quote:
-      "Maitreya doesn't just close tickets — he understands the system around the ticket. The monitoring setup he built caught issues we didn't know we had.",
+      "Maitreya doesn't just close the ticket — he pays attention to the system around it. The monitoring he set up caught problems we didn't even know we had.",
     name: "Engineering Colleague",
     role: "Proxgy",
   },
   {
     quote:
-      "Give him an ambiguous problem and you get back a shipped, documented service. The merchant platform quietly removed an entire category of ops work.",
+      "You can hand him something vague and get back a service that's shipped and documented. The merchant tool quietly took a whole chunk of manual work off the ops team.",
     name: "Product Stakeholder",
     role: "Proxgy",
   },
   {
     quote:
-      "Rare combination: cares about query plans and cares about how the feature feels to use. That's the whole job, and most people only do half of it.",
+      "He cares about the query plan and about how the feature feels to use. That's the whole job, and most people only do half of it.",
     name: "Senior Engineer",
     role: "Mentor",
   },
-] as const;
-
-/* ---------------------------------- Stats ---------------------------------- */
-
-export const stats = [
-  { label: "Years shipping to production", value: 3, suffix: "+" },
-  { label: "Services owned end-to-end", value: 8, suffix: "+" },
-  { label: "Uptime mindset", value: 99.9, suffix: "%", decimals: 1 },
-  { label: "Side projects that solve real problems", value: 5, suffix: "" },
 ] as const;

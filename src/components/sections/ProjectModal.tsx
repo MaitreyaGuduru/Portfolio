@@ -7,7 +7,7 @@ import { X, Github, ExternalLink, Puzzle, Boxes, Flame, TrendingUp } from "lucid
 import type { Project } from "@/lib/data";
 import { Tag } from "@/components/ui/Tag";
 import { ButtonLink } from "@/components/ui/Button";
-import { ProjectArt } from "@/components/sections/ProjectArt";
+import { ProjectMedia } from "@/components/sections/ProjectArt";
 import { EASE } from "@/lib/motion";
 
 const blocks = [
@@ -71,7 +71,7 @@ export function ProjectModal({
             </button>
 
             <div className="h-56 w-full overflow-hidden rounded-t-3xl border-b border-border/60 md:h-64">
-              <ProjectArt slug={`${project.slug}-modal`} accent={project.accent} title={project.title} />
+              <ProjectMedia project={project} variantKey="-modal" />
             </div>
 
             <div className="p-6 md:p-10">

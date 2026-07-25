@@ -17,8 +17,8 @@ export function Skills() {
       <div className="section-shell">
         <SectionHeading
           kicker="Skills"
-          title="Tools I reach for."
-          lede="Proficiency is what you can debug at 2am, not what's on a list. These are honest levels — the things I use in production, weighted by how deep I've had to go."
+          title="What I work with."
+          lede="An honest read on where I'm strongest and what I'm still deepening — grouped by how I use them, not just listed."
         />
 
         <div className="grid gap-10 lg:grid-cols-[280px_1fr]">

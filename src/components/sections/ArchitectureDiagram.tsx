@@ -13,7 +13,7 @@ import { viewportOnce } from "@/lib/motion";
 const boxes = [
   { id: "client", x: 20, y: 96, w: 110, h: 48, label: "Clients", sub: "web · mobile · IoT" },
   { id: "gateway", x: 200, y: 96, w: 110, h: 48, label: "API Gateway", sub: "auth · rate limits" },
-  { id: "svc-a", x: 380, y: 24, w: 120, h: 48, label: "Core Service", sub: "Spring Boot" },
+  { id: "svc-a", x: 380, y: 24, w: 120, h: 48, label: "Core Service", sub: "NestJS" },
   { id: "svc-b", x: 380, y: 96, w: 120, h: 48, label: "Payments", sub: "idempotent" },
   { id: "svc-c", x: 380, y: 168, w: 120, h: 48, label: "Ingest", sub: "MQTT · events" },
   { id: "db", x: 580, y: 24, w: 110, h: 48, label: "PostgreSQL", sub: "tuned indexes" },

@@ -1,16 +1,16 @@
-import { BrainCircuit, ArrowRight } from "lucide-react";
+import { BrainCircuit } from "lucide-react";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
-import { aiFocus, aiRoadmap } from "@/lib/data";
+import { aiFocus } from "@/lib/data";
 
 export function AI() {
   return (
     <section id="ai" className="relative z-10 py-28 md:py-36">
       <div className="section-shell">
         <SectionHeading
-          kicker="AI Engineering"
-          title="Backend discipline, applied to LLMs."
-          lede="AI products fail the same way distributed systems do — silently, at the edges, under load. I bring the same engineering rigor to LLM pipelines that I bring to payment systems."
+          kicker="Working with AI"
+          title="Backend habits, applied to AI."
+          lede="I bring the discipline I've built on the backend — structure, validation, monitoring — to working with LLMs. These are the areas I'm focused on."
         />
 
         <div className="grid gap-4 md:grid-cols-2">
@@ -30,29 +30,6 @@ export function AI() {
             </Reveal>
           ))}
         </div>
-
-        <Reveal index={2} className="mt-10">
-          <div className="rounded-2xl border border-accent-secondary/30 bg-gradient-to-br from-accent-secondary/[0.07] to-transparent p-7 md:p-9">
-            <h3 className="font-mono text-xs uppercase tracking-[0.25em] text-accent-secondary">
-              What I want to build next
-            </h3>
-            <ul className="mt-5 space-y-3">
-              {aiRoadmap.map((item) => (
-                <li
-                  key={item}
-                  className="flex items-start gap-3 text-sm leading-relaxed text-muted-foreground"
-                >
-                  <ArrowRight
-                    size={14}
-                    className="mt-1 shrink-0 text-accent-secondary"
-                    aria-hidden
-                  />
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </Reveal>
       </div>
     </section>
   );
